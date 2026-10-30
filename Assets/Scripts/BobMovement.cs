@@ -8,7 +8,7 @@ public class BobMovement : MonoBehaviour
     [SerializeField] private float speed = 5;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private Animator bobAnimator;
-    
+
 
     private float score = 0;
     void Start() { }
@@ -19,11 +19,12 @@ public class BobMovement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         transform.Translate(new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime);
         bobAnimator.SetFloat("Speed", speed);
+        Debug.Log("Bob is moving");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Coin"))
+        if (other.CompareTag("Coin"))
         {
             score = score + 1;
             scoreText.text = "Score: " + score;
