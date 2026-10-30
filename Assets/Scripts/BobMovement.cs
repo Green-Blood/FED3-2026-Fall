@@ -20,6 +20,7 @@ public class BobMovement : MonoBehaviour
         transform.Translate(new Vector3(horizontal, vertical, 0) * speed * Time.deltaTime);
         bobAnimator.SetFloat("Speed", speed);
         Debug.Log("Bob is moving");
+        Debug.Log("Bob is running");
     }
 
     private void OnTriggerEnter2D(Collider2D other)
